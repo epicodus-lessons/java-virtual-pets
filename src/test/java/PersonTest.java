@@ -1,5 +1,6 @@
 import org.junit.*;
 import static org.junit.Assert.*;
+import org.sql2o.*;
 
 public class PersonTest {
 
@@ -35,7 +36,7 @@ public class PersonTest {
   public void save_insertsObjectIntoDatabase_Person() {
     Person testPerson = new Person("Henry", "henry@henry.com");
     testPerson.save();
-    assertTrue(Person.all().get(0).equals(testPerson));
+    assertEquals(true, Person.all().get(0).equals(testPerson));
   }
 
   @Test

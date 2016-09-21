@@ -1,7 +1,12 @@
+import java.util.ArrayList;
+import java.util.List;
+import org.sql2o.*;
+
 public class Person {
   private String name;
   private String email;
-
+  private int id;
+  
   public Person(String name, String email) {
     this.name = name;
     this.email = email;
@@ -22,17 +27,24 @@ public class Person {
     } else {
       Person newPerson = (Person) otherPerson;
       return this.getName().equals(newPerson.getName()) &&
-             this.getEmail() == newPerson.getEmail();
+             this.getEmail().equals(newPerson.getEmail());
     }
   }
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO persons(name, email) VALUES (:name, :email)";
-      con.createQuery(sql, true)
+      String sql = "INSERT INTO persons (name, email) VALUES (:name, :email)";
+      con.createQuery(sql)
         .addParameter("name", this.name)
         .addParameter("email", this.email)
         .executeUpdate();
+    }
+  }
+
+  public static List<Person> all() {
+    String sql = "SELECT id, name, email FROM persons";
+    try(Connection con = DB.sql2o.open()) {
+     return con.createQuery(sql).executeAndFetch(Person.class);
     }
   }
 
