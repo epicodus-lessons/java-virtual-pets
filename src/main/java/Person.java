@@ -6,7 +6,7 @@ public class Person {
   private String name;
   private String email;
   private int id;
-  
+
   public Person(String name, String email) {
     this.name = name;
     this.email = email;
@@ -34,10 +34,11 @@ public class Person {
   public void save() {
     try(Connection con = DB.sql2o.open()) {
       String sql = "INSERT INTO persons (name, email) VALUES (:name, :email)";
-      con.createQuery(sql)
+      this.id = (int) con.createQuery(sql, true)
         .addParameter("name", this.name)
         .addParameter("email", this.email)
-        .executeUpdate();
+        .executeUpdate()
+        .getKey();
     }
   }
 
