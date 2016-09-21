@@ -15,4 +15,10 @@ public class PersonTest {
     assertEquals("Henry", testPerson.getName());
   }
 
+  @Test
+  public void getName_personInstantiatesWithEmail_String() {
+    Person testPerson = new Person("Henry", "henry@henry.com");
+    assertEquals("henry@henry.com", testPerson.getEmail());
+  }
+
 }
