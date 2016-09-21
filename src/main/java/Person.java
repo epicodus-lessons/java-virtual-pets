@@ -20,6 +20,10 @@ public class Person {
     return email;
   }
 
+  public int getId() {
+    return id;
+  }
+
   @Override
   public boolean equals(Object otherPerson){
     if (!(otherPerson instanceof Person)) {
