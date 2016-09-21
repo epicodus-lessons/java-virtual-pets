@@ -49,4 +49,12 @@ public class PersonTest {
     assertEquals(true, Person.all().get(1).equals(secondPerson));
   }
 
+  @Test
+  public void save_assignsIdToObject() {
+    Person testPerson = new Person("Henry", "henry@henry.com");
+    testPerson.save();
+    Person savedPerson = Person.all().get(0);
+    assertEquals(testPerson.getId(), savedPerson.getId());
+  }
+
 }
