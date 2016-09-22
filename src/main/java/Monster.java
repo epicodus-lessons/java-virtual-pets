@@ -19,9 +19,9 @@ public class Monster {
   public Monster(String name, int personId) {
     this.name = name;
     this.personId = personId;
-    this.playLevel = MAX_PLAY_LEVEL / 2;
-    this.sleepLevel = MAX_SLEEP_LEVEL / 2;
-    this.foodLevel = MAX_FOOD_LEVEL / 2;
+    playLevel = MAX_PLAY_LEVEL / 2;
+    sleepLevel = MAX_SLEEP_LEVEL / 2;
+    foodLevel = MAX_FOOD_LEVEL / 2;
   }
 
   public String getName(){
@@ -48,10 +48,14 @@ public class Monster {
     return id;
   }
 
+  // public void depleteLevels(){
+  //
+  // }
+
   public boolean isAlive() {
-    if (this.getFoodLevel() <= MIN_ALL_LEVELS ||
-    this.getPlayLevel() <= MIN_ALL_LEVELS ||
-    this.getSleepLevel() <= MIN_ALL_LEVELS) {
+    if (getFoodLevel() <= MIN_ALL_LEVELS ||
+    getPlayLevel() <= MIN_ALL_LEVELS ||
+    getSleepLevel() <= MIN_ALL_LEVELS) {
       return false;
     }
     return true;
