@@ -106,4 +106,19 @@ public class MonsterTest {
     assertEquals(testMonster.isAlive(), true);
   }
 
+  @Test
+  public void isAlive_confirmsMonsterIsAliveIfAllLevelsAboveMinimum_true(){
+    Monster testMonster = new Monster("Bubbles", 1);
+    assertEquals(testMonster.isAlive(), true);
+  }
+
+  @Test
+  public void depleteLevels_reducesAllLevels(){
+    Monster testMonster = new Monster("Bubbles", 1);
+    testMonster.depleteLevels();
+    assertEquals(testMonster.getFoodLevel, (Monster.MAX_FOOD_LEVEL / 2) - 1);
+    assertEquals(testMonster.getSleepLevel, (Monster.MAX_SLEEP_LEVEL / 2) - 1);
+    assertEquals(testMonster.getPlayLevel, (Monster.MAX_PLAY_LEVEL / 2) - 1);
+  }
+
 }
