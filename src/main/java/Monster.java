@@ -20,7 +20,7 @@ public class Monster {
     this.name = name;
     this.personId = personId;
     this.playLevel = MAX_PLAY_LEVEL / 2;
-    this.playLevel = MAX_SLEEP_LEVEL / 2;
+    this.sleepLevel = MAX_SLEEP_LEVEL / 2;
     this.foodLevel = MAX_FOOD_LEVEL / 2;
   }
 
