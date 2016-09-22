@@ -48,6 +48,15 @@ public class Monster {
     return id;
   }
 
+  public boolean isAlive() {
+    if (this.getFoodLevel() <= MIN_ALL_LEVELS ||
+    this.getPlayLevel() <= MIN_ALL_LEVELS ||
+    this.getSleepLevel() <= MIN_ALL_LEVELS) {
+      return false;
+    }
+    return true;
+  }
+
   @Override
   public boolean equals(Object otherMonster){
     if (!(otherMonster instanceof Monster)) {
