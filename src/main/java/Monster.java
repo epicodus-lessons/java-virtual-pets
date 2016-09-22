@@ -21,6 +21,7 @@ public class Monster {
     this.personId = personId;
     this.playLevel = MAX_PLAY_LEVEL / 2;
     this.playLevel = MAX_SLEEP_LEVEL / 2;
+    this.foodLevel = MAX_FOOD_LEVEL / 2;
   }
 
   public String getName(){
@@ -29,6 +30,10 @@ public class Monster {
 
   public int getPlayLevel(){
     return playLevel;
+  }
+
+  public int getFoodLevel(){
+    return foodLevel;
   }
 
   public int getSleepLevel(){
