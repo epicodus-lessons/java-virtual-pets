@@ -94,4 +94,16 @@ public class MonsterTest {
     assertEquals(testMonster.getFoodLevel(), (Monster.MAX_FOOD_LEVEL / 2));
   }
 
+  @Test
+  public void play_increasesPlayLevelValue_(){
+    Monster testMonster = new Monster("Bubbles", 1);
+    assertEquals(testMonster.getFoodLevel(), (Monster.MAX_FOOD_LEVEL / 2));
+  }
+
+  @Test
+  public void isAlive_confirmsMonsterIsAliveIfAllLevelsAboveMinimum_true(){
+    Monster testMonster = new Monster("Bubbles", 1);
+    assertEquals(testMonster.isAlive(), true);
+  }
+
 }
