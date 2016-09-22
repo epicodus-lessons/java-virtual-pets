@@ -48,14 +48,16 @@ public class Monster {
     return id;
   }
 
-  // public void depleteLevels(){
-  //
-  // }
+  public void depleteLevels(){
+    playLevel--;
+    foodLevel--;
+    sleepLevel--;
+  }
 
   public boolean isAlive() {
-    if (getFoodLevel() <= MIN_ALL_LEVELS ||
-    getPlayLevel() <= MIN_ALL_LEVELS ||
-    getSleepLevel() <= MIN_ALL_LEVELS) {
+    if (foodLevel <= MIN_ALL_LEVELS ||
+    playLevel <= MIN_ALL_LEVELS ||
+    sleepLevel <= MIN_ALL_LEVELS) {
       return false;
     }
     return true;
