@@ -54,6 +54,10 @@ public class Monster {
     sleepLevel--;
   }
 
+  public void play(){
+    playLevel++;
+  }
+
   public boolean isAlive() {
     if (foodLevel <= MIN_ALL_LEVELS ||
     playLevel <= MIN_ALL_LEVELS ||
