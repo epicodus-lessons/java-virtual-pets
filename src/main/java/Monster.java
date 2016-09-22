@@ -3,9 +3,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Monster {
+
   private String name;
   private int personId;
   private int id;
+  private int foodLevel;
+  private int sleepLevel;
+  private int playLevel;
 
   public static final int MAX_FOOD_LEVEL = 3;
   public static final int MAX_SLEEP_LEVEL = 8;
