@@ -20,6 +20,10 @@ public class Monster {
     return personId;
   }
 
+  public int getId(){
+    return id;
+  }
+
   @Override
   public boolean equals(Object otherMonster){
     if (!(otherMonster instanceof Monster)) {
@@ -33,7 +37,7 @@ public class Monster {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO monsters(name, personId) VALUES (:name, :personId)";
+      String sql = "INSERT INTO monsters (name, personId) VALUES (:name, :personId)";
       this.id = (int) con.createQuery(sql, true)
         .addParameter("name", this.name)
         .addParameter("personId", this.personId)
@@ -43,7 +47,7 @@ public class Monster {
   }
 
   public static List<Monster> all() {
-    String sql = "SELECT * FROM monsters";
+    String sql = "SELECT * FROM monsters;";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).executeAndFetch(Monster.class);
     }
