@@ -82,4 +82,10 @@ public class MonsterTest {
     assertEquals(testMonster.getPlayLevel(), (Monster.MAX_PLAY_LEVEL / 2));
   }
 
+  @Test
+  public void monster_instantiatesWithHalfFullSleepLevel(){
+    Monster testMonster = new Monster("Bubbles", 1);
+    assertEquals(testMonster.getPlayLevel(), (Monster.MAX_SLEEP_LEVEL / 2));
+  }
+
 }
