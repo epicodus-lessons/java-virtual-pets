@@ -154,4 +154,16 @@ public class MonsterTest {
     assertTrue(testMonster.getFoodLevel() <= Monster.MAX_FOOD_LEVEL);
   }
 
+  @Test
+  public void feed_throwsExceptionIfFoodLevelIsAtMaxValue(){
+    Monster testMonster = new Monster("Bubbles", 1);
+    try {
+      for(int i = Monster.MIN_ALL_LEVELS; i <= (Monster.MAX_FOOD_LEVEL + 2); i++){
+        testMonster.feed();
+      }
+    } catch (UnsupportedOperationException exception) {
+      assertThat(exception.getMessage(), containsString("You cannot feed your monster any more!"));
+    }
+  }
+
 }
