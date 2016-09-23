@@ -191,4 +191,15 @@ public class MonsterTest {
     }
   }
 
+  @Test
+  public void monster_sleepLevelCannotGoBeyondMaxValue(){
+    Monster testMonster = new Monster("Bubbles", 1);
+    for(int i = Monster.MIN_ALL_LEVELS; i <= (Monster.MAX_SLEEP_LEVEL); i++){
+      try {
+        testMonster.sleep();
+      } catch (UnsupportedOperationException exception){ }
+    }
+    assertTrue(testMonster.getSleepLevel() <= Monster.MAX_SLEEP_LEVEL);
+  }
+
 }
