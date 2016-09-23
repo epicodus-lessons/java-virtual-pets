@@ -165,10 +165,29 @@ public class MonsterTest {
   }
 
   @Test(expected = UnsupportedOperationException.class)
-  public void play_throwsExceptionIfFoodLevelIsAtMaxValue(){
+  public void play_throwsExceptionIfPlayLevelIsAtMaxValue(){
     Monster testMonster = new Monster("Bubbles", 1);
     for(int i = Monster.MIN_ALL_LEVELS; i <= (Monster.MAX_PLAY_LEVEL); i++){
       testMonster.play();
+    }
+  }
+
+  @Test
+  public void monster_playLevelCannotGoBeyondMaxValue(){
+    Monster testMonster = new Monster("Bubbles", 1);
+    for(int i = Monster.MIN_ALL_LEVELS; i <= (Monster.MAX_PLAY_LEVEL); i++){
+      try {
+        testMonster.play();
+      } catch (UnsupportedOperationException exception){ }
+    }
+    assertTrue(testMonster.getPlayLevel() <= Monster.MAX_PLAY_LEVEL);
+  }
+
+  @Test(expected = UnsupportedOperationException.class)
+  public void sleep_throwsExceptionIfSleepLevelIsAtMaxValue(){
+    Monster testMonster = new Monster("Bubbles", 1);
+    for(int i = Monster.MIN_ALL_LEVELS; i <= (Monster.MAX_SLEEP_LEVEL); i++){
+      testMonster.sleep();
     }
   }
 
