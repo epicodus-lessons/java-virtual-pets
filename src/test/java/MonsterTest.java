@@ -148,21 +148,19 @@ public class MonsterTest {
   @Test
   public void monster_foodLevelCannotGoBeyondMaxValue(){
     Monster testMonster = new Monster("Bubbles", 1);
-    for(int i = Monster.MIN_ALL_LEVELS; i <= (Monster.MAX_FOOD_LEVEL + 2); i++){
-      testMonster.feed();
+    for(int i = Monster.MIN_ALL_LEVELS; i <= (Monster.MAX_FOOD_LEVEL); i++){
+      try {
+        testMonster.feed();
+      } catch (UnsupportedOperationException exception){ }
     }
     assertTrue(testMonster.getFoodLevel() <= Monster.MAX_FOOD_LEVEL);
   }
 
-  @Test
+  @Test(expected = UnsupportedOperationException.class)
   public void feed_throwsExceptionIfFoodLevelIsAtMaxValue(){
     Monster testMonster = new Monster("Bubbles", 1);
-    try {
-      for(int i = Monster.MIN_ALL_LEVELS; i <= (Monster.MAX_FOOD_LEVEL + 2); i++){
-        testMonster.feed();
-      }
-    } catch (UnsupportedOperationException exception) {
-      assertThat(exception.getMessage(), containsString("You cannot feed your monster any more!"));
+    for(int i = Monster.MIN_ALL_LEVELS; i <= (Monster.MAX_FOOD_LEVEL); i++){
+      testMonster.feed();
     }
   }
 
