@@ -192,6 +192,14 @@ public class MonsterTest {
   }
 
   @Test
+  public void save_assignsIdToObject() {
+    Monster testMonster = new Monster("Bubbles", 1);
+    testMonster.save();
+    Monster savedMonster = Monster.all().get(0);
+    assertEquals(testMonster.getId(), savedMonster.getId());
+  }
+
+  @Test
   public void monster_sleepLevelCannotGoBeyondMaxValue(){
     Monster testMonster = new Monster("Bubbles", 1);
     for(int i = Monster.MIN_ALL_LEVELS; i <= (Monster.MAX_SLEEP_LEVEL); i++){
