@@ -10,6 +10,7 @@ public class Monster {
   private int foodLevel;
   private int sleepLevel;
   private int playLevel;
+  private Date birthday;
 
   public static final int MAX_FOOD_LEVEL = 3;
   public static final int MAX_SLEEP_LEVEL = 8;
