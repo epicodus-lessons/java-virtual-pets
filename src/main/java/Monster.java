@@ -1,6 +1,7 @@
 import org.sql2o.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.Timestamp;
 
 public class Monster {
 
@@ -11,6 +12,10 @@ public class Monster {
   private int sleepLevel;
   private int playLevel;
   private Date birthday;
+  private Timestamp birthday;
+  private Timestamp lastSlept;
+  private Timestamp lastAte;
+  private Timestamp lastPlayed;
 
   public static final int MAX_FOOD_LEVEL = 3;
   public static final int MAX_SLEEP_LEVEL = 8;
