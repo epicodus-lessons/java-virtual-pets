@@ -65,6 +65,10 @@ public class Monster {
     return lastAte;
   }
 
+  public Timestamp getLastPlayed(){
+    return lastPlayed;
+  }
+
   public void depleteLevels(){
     playLevel--;
     foodLevel--;
