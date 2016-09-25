@@ -54,6 +54,10 @@ public class Monster {
     return id;
   }
 
+  public Timestamp getBirthday(){
+    return birthday;
+  }
+
   public void depleteLevels(){
     playLevel--;
     foodLevel--;
