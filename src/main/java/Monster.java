@@ -11,7 +11,6 @@ public class Monster {
   private int foodLevel;
   private int sleepLevel;
   private int playLevel;
-  private Date birthday;
   private Timestamp birthday;
   private Timestamp lastSlept;
   private Timestamp lastAte;
