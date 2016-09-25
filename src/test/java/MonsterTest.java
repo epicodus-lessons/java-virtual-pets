@@ -221,4 +221,13 @@ public class MonsterTest {
     assertEquals(rightNow.getDay(), savedMonsterBirthday.getDay());
   }
 
+  @Test
+  public void sleep_recordsTimeLastSleptInDatabase() {
+    Monster testMonster = new Monster("Bubbles", 1);
+    testMonster.save();
+    Timestamp savedMonsterLastSlept = Monster.find(testMonster.getId()).getLastSlept();
+    Timestamp rightNow = new Timestamp(new Date().getTime());
+    assertEquals(DateFormat.getDateTimeInstance().format(rightNow), DateFormat.getDateTimeInstance().format(savedMonsterLastSlept);
+  }
+
 }
