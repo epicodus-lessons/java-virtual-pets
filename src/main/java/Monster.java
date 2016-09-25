@@ -103,7 +103,7 @@ public class Monster {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO monsters (name, personId) VALUES (:name, :personId)";
+      String sql = "INSERT INTO monsters (name, personId, birthday) VALUES (:name, :personId, now())";
       this.id = (int) con.createQuery(sql, true)
         .addParameter("name", this.name)
         .addParameter("personId", this.personId)
