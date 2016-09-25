@@ -91,6 +91,12 @@ public class Monster {
     if (foodLevel >= MAX_FOOD_LEVEL){
       throw new UnsupportedOperationException("You cannot feed your monster anymore!");
     }
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE monsters SET lastate = now() WHERE id = :id";
+      con.createQuery(sql)
+        .addParameter("id", id)
+        .executeUpdate();
+      }
     foodLevel++;
   }
 
