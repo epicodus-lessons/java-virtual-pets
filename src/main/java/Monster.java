@@ -75,6 +75,12 @@ public class Monster {
     if (playLevel >= MAX_PLAY_LEVEL){
       throw new UnsupportedOperationException("You cannot play with monster anymore!");
     }
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE monsters SET lastplayed = now() WHERE id = :id";
+      con.createQuery(sql)
+        .addParameter("id", id)
+        .executeUpdate();
+      }
     playLevel++;
   }
 
