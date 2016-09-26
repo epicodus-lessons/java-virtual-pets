@@ -74,9 +74,11 @@ public class Monster {
   }
 
   public void depleteLevels(){
-    playLevel--;
-    foodLevel--;
-    sleepLevel--;
+    if (isAlive()){
+      playLevel--;
+      foodLevel--;
+      sleepLevel--;
+    }
   }
 
   public void play(){
