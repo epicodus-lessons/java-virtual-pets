@@ -262,6 +262,17 @@ public class MonsterTest {
     } catch (InterruptedException exception){}
     int secondPlayLevel = testMonster.getPlayLevel();
     assertTrue(firstPlayLevel > secondPlayLevel);
+
+
+  @Test
+  public void timer_haltsAfterMonsterDies() {
+    Monster testMonster = new Monster("Bubbles", 1);
+    testMonster.startTimer();
+    try {
+      Thread.sleep(6000);
+    } catch (InterruptedException exception){}
+    assertFalse(testMonster.isAlive());
+    assertTrue(testMonster.getFoodLevel() >= 0);
   }
 
 }
