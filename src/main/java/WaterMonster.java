@@ -21,7 +21,20 @@ public class WaterMonster extends Monster {
   }
 
   public void water(){
+    if (waterLevel >= MAX_WATER_LEVEL){
+      throw new UnsupportedOperationException("You cannot water your pet any more!");
+    }
     waterLevel++;
+  }
+
+  @Override
+  public void depleteLevels(){
+    if (isAlive()){
+    playLevel--;
+    foodLevel--;
+    sleepLevel--;
+    waterLevel--;
+    }
   }
 
   public static List<WaterMonster> all() {
