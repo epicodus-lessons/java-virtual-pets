@@ -20,4 +20,14 @@ public class WaterMonster extends Monster {
     }
   }
 
+  public static WaterMonster find(int id) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM monsters where id=:id";
+      WaterMonster monster = con.createQuery(sql)
+        .addParameter("id", id)
+        .executeAndFetchFirst(WaterMonster.class);
+      return monster;
+    }
+  }
+
 }
