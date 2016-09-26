@@ -12,4 +12,11 @@ public class WaterMonster extends Monster {
     timer = new Timer();
   }
 
+  public static List<WaterMonster> all() {
+    String sql = "SELECT * FROM monsters;";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql).executeAndFetch(WaterMonster.class);
+    }
+  }
+
 }
