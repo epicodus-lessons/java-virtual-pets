@@ -276,9 +276,16 @@ public class WaterMonsterTest {
   }
 
   @Test
-  public void fireMonster_instantiatesWithHalfFullFireLevel(){
-    FireMonster testFireMonster = new FireMonster("Smokey", 1);
-    assertEquals(testFireMonster.getFireLevel(), (FireMonster.MAX_FIRE_LEVEL / 2));
+  public void waterMonster_instantiatesWithHalfFullWaterLevel(){
+    WaterMonster testWaterMonster = new WaterMonster("Drippy", 1);
+    assertEquals(testWaterMonster.getWaterLevel(), (WaterMonster.MAX_WATER_LEVEL / 2));
+  }
+
+  @Test
+  public void water_increasesWaterMonsterWaterLevel(){
+    WaterMonster testWaterMonster = new WaterMonster("Drippy", 1);
+    testWaterMonster.water();
+    assertTrue(testWaterMonster.getWaterLevel() > (WaterMonster.MAX_WATER_LEVEL / 2));
   }
 
 }

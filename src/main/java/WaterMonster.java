@@ -20,6 +20,10 @@ public class WaterMonster extends Monster {
     return waterLevel;
   }
 
+  public void water(){
+    waterLevel++;
+  }
+
   public static List<WaterMonster> all() {
     String sql = "SELECT * FROM monsters;";
     try(Connection con = DB.sql2o.open()) {
