@@ -262,7 +262,7 @@ public class MonsterTest {
     } catch (InterruptedException exception){}
     int secondPlayLevel = testMonster.getPlayLevel();
     assertTrue(firstPlayLevel > secondPlayLevel);
-
+  }
 
   @Test
   public void timer_haltsAfterMonsterDies() {
