@@ -2,6 +2,8 @@ import org.sql2o.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.Timestamp;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Monster {
 
@@ -27,6 +29,7 @@ public class Monster {
     playLevel = MAX_PLAY_LEVEL / 2;
     sleepLevel = MAX_SLEEP_LEVEL / 2;
     foodLevel = MAX_FOOD_LEVEL / 2;
+    timer = new Timer();
   }
 
   public String getName(){
