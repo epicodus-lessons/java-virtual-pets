@@ -13,4 +13,11 @@ public class FireMonster extends Monster {
     timer = new Timer();
   }
 
+  public static List<FireMonster> all() {
+    String sql = "SELECT * FROM monsters;";
+    try(Connection con = DB.sql2o.open()) {
+    return con.createQuery(sql).executeAndFetch(FireMonster.class);
+    }
+  }
+
 }
