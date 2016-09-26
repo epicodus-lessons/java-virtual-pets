@@ -37,4 +37,32 @@ public class FireMonster extends Monster {
     }
   }
 
+  public void kindling(){
+    if (fireLevel >= MAX_PLAY_LEVEL){
+      throw new UnsupportedOperationException("You cannot give any more kindling!");
+    }
+    fireLevel++;
+  }
+
+  @Override
+  public void depleteLevels(){
+    if (isAlive()){
+    playLevel--;
+    foodLevel--;
+    sleepLevel--;
+    fireLevel--;
+    }
+  }
+
+  @Override
+  public boolean isAlive() {
+    if (foodLevel <= MIN_ALL_LEVELS ||
+    playLevel <= MIN_ALL_LEVELS ||
+    fireLevel <= MIN_ALL_LEVELS ||
+    sleepLevel <= MIN_ALL_LEVELS) {
+      return false;
+    }
+    return true;
+  }
+
 }
