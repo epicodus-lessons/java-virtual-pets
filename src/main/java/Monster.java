@@ -17,6 +17,7 @@ public class Monster {
   private Timestamp lastSlept;
   private Timestamp lastAte;
   private Timestamp lastPlayed;
+  private Timer timer;
 
   public static final int MAX_FOOD_LEVEL = 3;
   public static final int MAX_SLEEP_LEVEL = 8;
