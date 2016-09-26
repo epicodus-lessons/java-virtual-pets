@@ -165,4 +165,18 @@ public class Monster {
     }
   }
 
+  public void startTimer(){
+    Monster currentMonster = this;
+    TimerTask timerTask = new TimerTask(){
+      @Override
+      public void run() {
+        if (currentMonster.isAlive() == false){
+          cancel();
+        }
+        depleteLevels();
+      }
+    };
+    this.timer.schedule(timerTask, 0, 600);
+  }
+
 }
