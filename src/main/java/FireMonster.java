@@ -1,10 +1,10 @@
+
 import java.util.Timer;
+import org.sql2o.*;
 
 public class FireMonster extends Monster {
-  private int fireLevel;
-  public static final int MAX_FIRE_LEVEL = 10;
 
-  public Monster(String name, int personId) {
+  public FireMonster(String name, int personId) {
     this.name = name;
     this.personId = personId;
     playLevel = MAX_PLAY_LEVEL / 2;
