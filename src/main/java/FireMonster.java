@@ -4,7 +4,7 @@ import org.sql2o.*;
 
 public class FireMonster extends Monster {
   private int fireLevel;
-  public static final MAX_FIRE_LEVEL = 10;
+  public static final int MAX_FIRE_LEVEL = 10;
 
   public FireMonster(String name, int personId) {
     this.name = name;
