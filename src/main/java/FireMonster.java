@@ -5,6 +5,7 @@ import org.sql2o.*;
 public class FireMonster extends Monster {
   private int fireLevel;
   public static final int MAX_FIRE_LEVEL = 10;
+  public static final String DATABASE_TYPE = "fire";
 
   public FireMonster(String name, int personId) {
     this.name = name;
@@ -13,6 +14,7 @@ public class FireMonster extends Monster {
     sleepLevel = MAX_SLEEP_LEVEL / 2;
     foodLevel = MAX_FOOD_LEVEL / 2;
     fireLevel = MAX_FIRE_LEVEL / 2;
+    type = DATABASE_TYPE;
     timer = new Timer();
   }
 
