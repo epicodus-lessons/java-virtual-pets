@@ -15,4 +15,15 @@ public class Community {
     return description;
   }
 
+  @Override
+  public boolean equals(Object otherCommunity){
+    if (!(otherCommunity instanceof Community)) {
+      return false;
+    } else {
+    Community newCommunity = (Community) otherCommunity;
+    return this.getName().equals(newCommunity.getName()) &&
+           this.getDescription().equals(newCommunity.getDescription());
+   }
+  }
+
 }
