@@ -95,5 +95,15 @@ public class Person {
     }
   }
 
+  public void leaveCommunity(Community community){
+    try(Connection con = DB.sql2o.open()){
+      String joinRemovalQuery = "DELETE FROM communities_persons WHERE community_id = :communityId AND person_id = :personId;";
+      con.createQuery(joinRemovalQuery)
+        .addParameter("communityId", community.getId())
+        .addParameter("personId", this.getId())
+        .executeUpdate();
+    }
+  }
+
 
 }
