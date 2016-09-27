@@ -50,4 +50,15 @@ public class CommunityTest {
     assertEquals(true, Community.all().get(1).equals(secondCommunity));
   }
 
+  @Test
+  public void addPerson_addsPersonToCommunity() {
+    Community testCommunity = new Community("Fire Enthusiasts", "Flame on!");
+    testCommunity.save();
+    Person testPerson = new Person("Henry", "henry@henry.com");
+    testPerson.save();
+    testComunity.addPerson(testPerson);
+    Person savedPerson = testCommunity.getPersons().get(0);
+    assertTrue(testPerson.equals(savedPerson));
+  }
+
 }
