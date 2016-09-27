@@ -23,7 +23,7 @@ public class FireMonster extends Monster {
   }
 
   public static List<FireMonster> all() {
-    String sql = "SELECT * FROM monsters;";
+    String sql = "SELECT * FROM monsters WHERE type='fire';";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).executeAndFetch(FireMonster.class);
     }
