@@ -50,9 +50,8 @@ public class WaterMonster extends Monster {
     return true;
   }
 
-
   public static List<WaterMonster> all() {
-    String sql = "SELECT * FROM monsters;";
+    String sql = "SELECT * FROM monsters WHERE type='water';";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).executeAndFetch(WaterMonster.class);
     }
