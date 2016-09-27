@@ -82,4 +82,15 @@ public class CommunityTest {
     assertEquals(0, Community.all().size());
   }
 
+  @Test
+  public void delete_deletesAllPersonsAndCommunitiesAssociations() {
+    Community testCommunity = new Community("Fire Enthusiasts", "Flame on!");
+    testCommunity.save();
+    Person testPerson = new Person("Henry", "henry@henry.com");
+    testPerson.save();
+    testCommunity.addPerson(testPerson);
+    testCommunity.delete();
+    assertEquals(0, testPerson.getCommunities().size());
+  }
+
 }

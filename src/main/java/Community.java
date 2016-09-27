@@ -89,6 +89,10 @@ public class Community {
     con.createQuery(sql)
       .addParameter("id", this.id)
       .executeUpdate();
+    String joinDeleteQuery = "DELETE FROM communities_persons WHERE community_id = :communityId";
+    con.createQuery(joinDeleteQuery)
+      .addParameter("communityId", this.getId())
+      .executeUpdate();
     }
   }
 
