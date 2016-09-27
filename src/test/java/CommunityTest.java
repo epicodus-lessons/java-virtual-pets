@@ -2,6 +2,8 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import org.sql2o.*;
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 public class CommunityTest {
 
@@ -56,9 +58,20 @@ public class CommunityTest {
     testCommunity.save();
     Person testPerson = new Person("Henry", "henry@henry.com");
     testPerson.save();
-    testComunity.addPerson(testPerson);
+    testCommunity.addPerson(testPerson);
     Person savedPerson = testCommunity.getPersons().get(0);
     assertTrue(testPerson.equals(savedPerson));
+  }
+
+  @Test
+  public void getPersons_returnsAllPersons_List() {
+    Community testCommunity = new Community("Fire Enthusiasts", "Flame on!");
+    testCommunity.save();
+    Person testPerson = new Person("Henry", "henry@henry.com");
+    testPerson.save();
+    testCommunity.addPerson(testPerson);
+    List savedPersons = testCommunity.getPersons();
+    assertEquals(savedPersons.size(), 1);
   }
 
 }
