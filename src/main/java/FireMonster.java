@@ -22,6 +22,23 @@ public class FireMonster extends Monster {
     return fireLevel;
   }
 
+  public void kindling(){
+    if (fireLevel >= MAX_PLAY_LEVEL){
+      throw new UnsupportedOperationException("You cannot give any more kindling!");
+    }
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE monsters SET lastkindling = now() WHERE id = :id";
+      con.createQuery(sql)
+        .addParameter("id", id)
+        .executeUpdate();
+      }
+    fireLevel++;
+  }
+
+  public Timestamp getLastKindling(){
+    return lastKindling;
+  }
+
   public static List<FireMonster> all() {
     String sql = "SELECT * FROM monsters WHERE type='fire';";
     try(Connection con = DB.sql2o.open()) {
@@ -37,13 +54,6 @@ public class FireMonster extends Monster {
         .executeAndFetchFirst(FireMonster.class);
     return monster;
     }
-  }
-
-  public void kindling(){
-    if (fireLevel >= MAX_PLAY_LEVEL){
-      throw new UnsupportedOperationException("You cannot give any more kindling!");
-    }
-    fireLevel++;
   }
 
   @Override
