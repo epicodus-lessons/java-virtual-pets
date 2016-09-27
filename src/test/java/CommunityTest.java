@@ -101,7 +101,7 @@ public class CommunityTest {
     testPerson.save();
     testCommunity.removePerson(testPerson);
     List savedPersons = testCommunity.getPersons();
-    assertEquals(0, savedCommunities.size());
+    assertEquals(0, savedPersons.size());
   }
 
 }
