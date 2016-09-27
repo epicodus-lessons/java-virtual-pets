@@ -1,4 +1,6 @@
 import org.sql2o.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Community {
   private String name;
@@ -37,6 +39,13 @@ public class Community {
         .addParameter("description", this.description)
         .executeUpdate()
         .getKey();
+    }
+  }
+
+  public static List<Community> all() {
+    String sql = "SELECT * FROM communities";
+    try(Connection con = DB.sql2o.open()) {
+    return con.createQuery(sql).executeAndFetch(Community.class);
     }
   }
 
