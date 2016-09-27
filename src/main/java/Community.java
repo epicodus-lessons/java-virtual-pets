@@ -3,5 +3,11 @@ public class Community {
   private String description;
 
   public Community(String name, String email) {
+    this.name = name;
   }
+
+  public String getName() {
+    return name;
+  }
+
 }
