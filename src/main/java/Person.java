@@ -61,13 +61,15 @@ public class Person {
       List<FireMonster> fireMonsters = con.createQuery(sqlFire)
         .addParameter("id", this.id)
         .throwOnMappingFailure(false)
-        allMonsters.addAll(fireMonsters);
+        .executeAndFetch(FireMonster.class);
+      allMonsters.addAll(fireMonsters);
 
       String sqlWater = "SELECT * FROM monsters WHERE personId=:id AND type='water';";
       List<WaterMonster> waterMonsters = con.createQuery(sqlWater)
         .addParameter("id", this.id)
         .throwOnMappingFailure(false)
-        allMonsters.addAll(waterMonsters);
+        .executeAndFetch(WaterMonster.class);
+      allMonsters.addAll(waterMonsters);
       }
 
       return allMonsters;

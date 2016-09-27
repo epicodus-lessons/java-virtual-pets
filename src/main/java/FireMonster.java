@@ -1,9 +1,11 @@
 import java.util.List;
 import java.util.Timer;
 import org.sql2o.*;
+import java.sql.Timestamp;
 
 public class FireMonster extends Monster {
   private int fireLevel;
+  public Timestamp lastKindling;
   public static final int MAX_FIRE_LEVEL = 10;
   public static final String DATABASE_TYPE = "fire";
 
