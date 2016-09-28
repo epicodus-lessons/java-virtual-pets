@@ -82,4 +82,6 @@ public class FireMonster extends Monster implements DatabaseManagement {
     return true;
   }
 
+
+
 }
