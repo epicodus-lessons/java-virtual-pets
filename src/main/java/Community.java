@@ -47,6 +47,7 @@ public class Community implements DatabaseManagement {
     }
   }
 
+  @Override
   public static List<Community> all() {
     String sql = "SELECT * FROM communities";
     try(Connection con = DB.sql2o.open()) {
@@ -84,6 +85,7 @@ public class Community implements DatabaseManagement {
     }
   }
 
+  @Override
   public void delete() {
     try(Connection con = DB.sql2o.open()) {
     String sql = "DELETE FROM communities WHERE id = :id;";
