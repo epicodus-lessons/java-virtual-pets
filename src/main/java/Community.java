@@ -47,7 +47,6 @@ public class Community implements DatabaseManagement {
     }
   }
 
-  @Override
   public static List<Community> all() {
     String sql = "SELECT * FROM communities";
     try(Connection con = DB.sql2o.open()) {
