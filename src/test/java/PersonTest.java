@@ -93,4 +93,12 @@ public class PersonTest {
     assertEquals(0, savedCommunities.size());
   }
 
+  @Test
+  public void delete_deletesPerson_true() {
+    Person testPerson = new Person("Henry", "henry@henry.com");
+    testPerson.save();
+    testPerson.delete();
+    assertEquals(0, Person.all().size());
+  }
+
 }
